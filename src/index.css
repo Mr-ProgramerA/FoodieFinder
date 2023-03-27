@@ -18,5 +18,17 @@ code {
 
 body{
   background-color: rgb(255, 245, 216);
+  font-family: 'NHaasGroteskDSPro' ;
+  
+}
 
+.heading{
+  font-family:Impact ,Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: red;
+  font-weight: lighter;
+}
+.nav_tabs{
+  font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bold;
+  margin: 0 3%;
 }
