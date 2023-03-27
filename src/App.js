@@ -1,11 +1,14 @@
-import './App.css';
+import "./App.css";
+import Home from "./screens/Home";
 
 
 function App() {
   return (
-  <div className ="fs-1">
-    start
-  </div>
+    <>
+      <div>
+        <Home/>
+      </div>
+    </>
   );
 }
 
