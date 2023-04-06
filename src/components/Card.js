@@ -3,17 +3,21 @@ import React from "react";
 function Card() {
   return (
     <>
-      <div className="container">
+      {/* <div className="container ">
         <div
-          className="card mt-3"
+          className="card m-3"
           style={{ width: "18rem", maxHeight: "41vh" }}
         >
-          <img className="card-img-top" src="..." alt="Card image cap" />
+          <div className="">
+          <img 
+          // style={{height:"30px",width:"auto"}}
+          // src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          className="card-img-top cardimgdev"  alt="Card image cap" />
           <div className="card-body">
             <h5 className="card-title">Card title</h5>
             <p className="card-text">some text to be written here.</p>
-            <div className="containerw-100">
-              <select className="m-2 h-100 rounded bg-warning">
+            <div className="">
+              <select className="m-2  rounded bg-warning">
                 {Array.from(Array(6), (e, i) => {
                   return (
                     <option key={i + 1} value={i + 1}>
@@ -31,8 +35,18 @@ function Card() {
               <div className="d-inline h-100 fs-5">Total Price</div>
             </div>
           </div>
+          </div>
         </div>
-      </div>
+      </div> */}
+
+
+
+<div className="card" style={{width: "18rem"}}>
+  <img src="..." className="card-img-top" alt="..."/>
+  <div className="card-body">
+    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
     </>
   );
 }

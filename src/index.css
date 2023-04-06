@@ -32,3 +32,25 @@ body{
   font-weight: bold;
   margin: 0 3%;
 }
+
+#carouselExampleFade{
+  max-height: 10vh;
+  margin-bottom: 10px;
+  visibility: hidden;
+}
+
+.cardimgdev{
+  height: 21vh;
+  /* width: auto; */
+  object-fit : cover;
+  object-position: center;
+}
+.cardmaindev{
+  /* border: 1px solid red; */
+  /* margin: 7px 1px; */
+  height: fit-content;
+
+}
+*{
+  border: 3px solid green !important;
+}

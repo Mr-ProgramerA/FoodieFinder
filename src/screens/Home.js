@@ -13,11 +13,13 @@ function Home() {
     <div>
       <Carousel/>
     </div>
-      <div>
+      <div className="m-3">
+        <Card />
+        <Card />
         <Card />
       </div>
 
-      <div>
+      <div className="mt-2">
         <Footer />
       </div>
     </div>
