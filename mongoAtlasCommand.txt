@@ -1,0 +1,3 @@
+command to send data to mongodb food app
+
+mongoimport --uri mongodb+srv://GoFood:GoFoodProjectPassword@cluster0.uw6idog.mongodb.net/gofoodmern --collection food_items --jsonArray --file "F:\WebDevelopement\MERN_projects\GoFood\foodapp\foodData2.json"
