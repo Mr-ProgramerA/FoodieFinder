@@ -12,10 +12,13 @@ function componentNavbar() {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link className="nav-link nav_tabs fs-5" aria-current="page" to="/">Home</Link>
+          <Link className="nav-link nav_tabs fs-6" aria-current="page" to="/">Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link nav_tabs fs-5" to="/login">Login</Link>
+          <Link className="nav-link nav_tabs fs-6" to="/login">Login</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link nav_tabs fs-6" to="/createuser">SignUp</Link>
         </li>
      
       

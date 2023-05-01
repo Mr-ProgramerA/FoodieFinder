@@ -3,7 +3,7 @@ import React from "react";
 function Card() {
   return (
     <>
-      <div className="container ">
+      <div className="">
         <div
           className="card m-3"
           style={{ width: "18rem", maxHeight: "41vh" }}
