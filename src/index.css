@@ -24,7 +24,9 @@ body{
 
 .heading{
   font-family:Impact ,Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: red;
+  color: red !important;
+  outline-color: yellow;
+  outline-width: 6px !important;
   font-weight: lighter;
 }
 .nav_tabs{
