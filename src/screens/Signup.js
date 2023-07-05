@@ -12,13 +12,25 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = fetch("http://localhost:5000/api/createuser", {
+    const response = await fetch("http://localhost:5000/api/createuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(),
+      body: JSON.stringify({
+        name: credentials.name,
+        email: credentials.email,
+        password: credentials.password,
+        location: credentials.geolocation,
+      }),
     });
+    const json = response.json();
+    console.log(json);
+
+    if (!json.success) {
+      alert("Enter valid Credentials");
+      console.log(response);
+    }
   };
 
   const onChangeForm = (event) => {
@@ -31,9 +43,9 @@ function Signup() {
         <Navbar />{" "}
       </div>
       <div className="container">
-        <form onSubmit={handleSubmit} s>
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label for="name" className="form-label">
+            <label htmlFor="name" className="form-label">
               Name
             </label>
             <input
@@ -45,7 +57,7 @@ function Signup() {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input
@@ -62,7 +74,7 @@ function Signup() {
             </div>
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input
@@ -73,7 +85,7 @@ function Signup() {
               value={credentials.password}
               onChange={onChangeForm}
             />
-            <label for="geolocation" className="form-label mt-3">
+            <label htmlFor="geolocation" className="form-label mt-3">
               Addresss
             </label>
             <input
