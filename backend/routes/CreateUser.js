@@ -3,14 +3,14 @@ const router = express.Router();
 const User = require("../models/User");
 const { body, validationResult } = require("express-validator");
 
-router.post("/createuser",
+router.post(
+  "/createuser",
   [
-    body("email","Invalid email").isEmail(),
-    body("name","Name is too short").isLength({ min: 3 }),
-    body("password","Incorrect Password").isLength({ min: 5 }),
+    body("email", "Invalid email").isEmail(),
+    body("name", "Name is too short").isLength({ min: 3 }),
+    body("password", "Incorrect Password").isLength({ min: 5 }),
   ],
   async (req, res) => {
-
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -24,6 +24,38 @@ router.post("/createuser",
         location: req.body.location,
       });
       res.json({ success: true });
+      // console.log("Created User:\n",req.body);
+    } catch (error) {
+      console.log(error);
+      res.json({ success: false });
+    }
+  }
+);
+router.post(
+  "/loginuser",
+  [
+    body("email", "Invalid email").isEmail(),
+    body("password", "Incorrect Password").isLength({ min: 5 }),
+  ],
+
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    let email = req.body.email;
+    try {
+      let userData = await User.findOne({ email });
+      if (!userData) {
+        return res
+          .status(400)
+          .json({ errors: "try logging with correct credentials" });
+      }
+      if (req.body.password != userData.password) {
+        return res.status(400).json({ errors: "Wrong password" });
+      }
+      return res.json({ success: true });
     } catch (error) {
       console.log(error);
       res.json({ success: false });

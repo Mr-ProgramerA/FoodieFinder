@@ -92,7 +92,7 @@ function Signup() {
               onChange={onChangeForm}
             />
             <div className="form-text">
-              Enter a strong pasword
+            Please input a strong password consisting of a minimum of four characters.
             </div>
             <label htmlFor="geolocation" className="form-label mt-3">
               Addresss

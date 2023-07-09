@@ -5,7 +5,7 @@ function Carousel() {
     <>
       <div id="carouselExampleFade" className="carousel slide carousel-fade">
         <div className="carousel-inner">
-          <div style={{zIndex:10}} class="carousel-caption d-none d-md-block">
+          <div style={{zIndex:10}} className="carousel-caption d-none d-md-block">
             <form className="d-flex">
               <input
                 className="form-control me-2"

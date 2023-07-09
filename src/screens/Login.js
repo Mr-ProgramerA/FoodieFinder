@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [credentials, setCredentials] = useState({
@@ -8,9 +8,11 @@ function Login() {
     password: "",
   });
 
+  let navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/createuser", {
+    const response = await fetch("http://localhost:5000/api/loginuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,11 +28,9 @@ function Login() {
 
     if (!json.success) {
       alert("Enter valid Credentials");
-    } else {
-      setCredentials({
-        email: "",
-        password: "",
-      });
+    }
+    if (json.success) {
+      navigate("/");
     }
   };
 
@@ -44,7 +44,6 @@ function Login() {
       </div>
       <div className="container mt-5 border-style">
         <form onSubmit={handleSubmit}>
-        
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
@@ -74,7 +73,7 @@ function Login() {
               value={credentials.password}
               onChange={onChangeForm}
             />
-           </div>
+          </div>
 
           <button type="submit" className="btn m-3 btn-success">
             Submit
