@@ -30,7 +30,14 @@ function Signup() {
 
     if (!json.success) {
       alert("Enter valid Credentials");
-    } 
+    } else{
+      setCredentials({
+        name: "",
+        email: "",
+        password: "",
+        geolocation: "",
+      })  
+    }
   };
 
   const onChangeForm = (event) => {
@@ -39,10 +46,9 @@ function Signup() {
   return (
     <>
       <div>
-        {" "}
-        <Navbar />{" "}
+        <Navbar />
       </div>
-      <div className="container">
+      <div className="container border-style mt-3">
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
@@ -85,6 +91,9 @@ function Signup() {
               value={credentials.password}
               onChange={onChangeForm}
             />
+            <div className="form-text">
+              Enter a strong pasword
+            </div>
             <label htmlFor="geolocation" className="form-label mt-3">
               Addresss
             </label>

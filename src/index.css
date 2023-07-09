@@ -63,3 +63,20 @@ body{
 *{
   /* border: 2px dashed green !important; */
 }
+
+.border-style{
+  border-style: groove;
+  border-width: 2%;
+  border-color: wheat;
+  border-radius: 20px;
+  box-shadow: 1px 1px 4px 1px gray;
+  width: 65%;
+  max-height: 80vh;
+  padding: 1.6%;
+}
+
+@media screen and (max-width: 700px) {
+  .border-style{
+    max-height: fit-content;
+  }
+}
