@@ -9,60 +9,63 @@ const mongoURI =
 //   "mongodb://GoFood:GoFoodProjectPassword@ac-k2ycmwo-shard-00-00.uw6idog.mongodb.net:27017,ac-k2ycmwo-shard-00-01.uw6idog.mongodb.net:27017,ac-k2ycmwo-shard-00-02.uw6idog.mongodb.net:27017/gofoodmern?ssl=true&replicaSet=atlas-tyuld5-shard-0&authSource=admin&retryWrites=true&w=majority";
 
 const mongoDB = async () => {
-
-  mongoose.connect(mongoURI,{useNewUrlParser:true}, async(err,result) => {
+  mongoose.connect(mongoURI, { useNewUrlParser: true }, async (err, result) => {
     if (err) console.log(err);
     else {
       console.log("connected");
-      const fetched_data = await mongoose.connection.db.collection("food_items")
-      fetched_data.find({}).toArray(function (err,data) {
+      const fetched_data = await mongoose.connection.db.collection(
+        "food_items"
+      );
+      fetched_data.find({}).toArray(async function (err, data) {
+
+        // ================ work to be donr here ====================================/
+
+        const foodCategory = await mongoose.connection.db.collection("foodCategory");
+        // next code
+
+        // #################### abovr this line ####################################
+
         if (err) console.log(err);
-        else {
-          //  temporary snippet
-          if (data) {
-            console.log("got data");
-          }
+        else {        
+          global.food_items = data; 
         }
-      })
+      });
     }
-  })
-  }
-  //   ########################################################################
-  
+  });
+};
+//   ########################################################################
 
-  // await mongoose
-  //   .connect(mongoURI)
-      // useNewUrlParser: true,
-      // useCreateIndex: true,
-      // useUnifiedTopology: true,
-      // useFindAndModify: false 
-    // })
-    // .then(() => {
-    //   console.log("success!!!");
-    //   const fetched_data = mongoose.connection.db.collection("food_items");
-    //   console.log(fetched_data);
-    //   fetched_data.find({}).toArray(function (err,data) {
-    //     if (err) {
-    //       console.log(err);
-    //     } else {
-    //       console.log(data);
-    //     }
-    //   })
-    // })
-      
-      
-    //   .then(function (data) {
-    //     console.log(data);
-    //   }).catch(function (err) {
-    //     console.log(err);
-    //   })
-    // })
-    // .catch((err) => {
-    //   console.log(err);
-    // });
+// await mongoose
+//   .connect(mongoURI)
+// useNewUrlParser: true,
+// useCreateIndex: true,
+// useUnifiedTopology: true,
+// useFindAndModify: false
+// })
+// .then(() => {
+//   console.log("success!!!");
+//   const fetched_data = mongoose.connection.db.collection("food_items");
+//   console.log(fetched_data);
+//   fetched_data.find({}).toArray(function (err,data) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(data);
+//     }
+//   })
+// })
 
-  //   ########################################################################
+//   .then(function (data) {
+//     console.log(data);
+//   }).catch(function (err) {
+//     console.log(err);
+//   })
+// })
+// .catch((err) => {
+//   console.log(err);
+// });
 
+//   ########################################################################
 
 //   mongoose.connect(mongoURI, () => {
 // console.log("connected");
@@ -70,16 +73,15 @@ const mongoDB = async () => {
 // }
 //   ########################################################################
 
-  // await mongoose.connect(mongoURI, { useNewUrlParser: true }, async(err, result) => {
-  //   if (err) console.log("--------", err);
-  //   else {
-  //     console.log("connected");
+// await mongoose.connect(mongoURI, { useNewUrlParser: true }, async(err, result) => {
+//   if (err) console.log("--------", err);
+//   else {
+//     console.log("connected");
 
-  //   }
-  // });
+//   }
+// });
 
-  // };
+// };
 // #############################################################################
-
 
 module.exports = mongoDB;
