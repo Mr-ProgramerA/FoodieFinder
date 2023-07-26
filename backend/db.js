@@ -18,17 +18,21 @@ const mongoDB = async () => {
       );
       fetched_data.find({}).toArray(async function (err, data) {
 
-        // ================ work to be donr here ====================================/
+        const foodCategory = await mongoose.connection.db.collection(
+          "foodCategory"
+        );
+        foodCategory.find({}).toArray(function (err, catData) {
+          if (err) console.log(err);
+          else {
+            global.food_items = data;
+            global.foodCategory = catData;
+          }
+        });
 
-        const foodCategory = await mongoose.connection.db.collection("foodCategory");
-        // next code
-
-        // #################### abovr this line ####################################
-
-        if (err) console.log(err);
-        else {        
-          global.food_items = data; 
-        }
+        // if (err) console.log(err);
+        // else {
+        //   global.food_items = data;
+        // }
       });
     }
   });
