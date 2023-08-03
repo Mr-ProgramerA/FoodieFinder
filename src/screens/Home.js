@@ -15,16 +15,15 @@ function Home() {
         "Content-Type": "application/json",
       },
     });
-    response = await response.json()
+    response = await response.json();
 
-    setFoodItem(response[0])
-    setFoodCat(response[1])
+    setFoodItem(response[0]);
+    setFoodCat(response[1]);
   };
 
   useEffect(() => {
-    loadData()
-  },[])
-  
+    loadData();
+  }, []);
 
   return (
     <div>
@@ -35,16 +34,33 @@ function Home() {
         <Carousel />
       </div>
       <div className="container">
-      {
-        foodCat !== []
-        ? foodCat.map((data)=> {
-          return(
-            <div key={data._id}>{data.CategoryName}</div>
-          )
-        })
-        : <div>couldn't load data</div>
-      }
-        <Card />
+        {foodCat !== [] ? (
+          foodCat.map((data) => {
+            return (
+              <div>
+                <div key={data._id} className="fs-3 m-3">
+                  {data.CategoryName}
+                </div>
+                <hr />
+                {foodItem !== [] ? (
+                  foodItem
+                    .filter((item) => item.CategoryName == data.CategoryName)
+                    .map((filterItems) => {
+                      return (
+                        <div key={filterItems._id}>
+                          <Card />
+                        </div>
+                      );
+                    })
+                ) : (
+                  <div>No Items found</div>
+                )}
+              </div>
+            );
+          })
+        ) : (
+          <div>couldn't load data</div>
+        )}
       </div>
 
       <div className="mt-2">
