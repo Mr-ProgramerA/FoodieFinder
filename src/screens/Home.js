@@ -39,7 +39,7 @@ function Home() {
         foodCat !== []
         ? foodCat.map((data)=> {
           return(
-            <div>{data.CategoryName}</div>
+            <div key={data._id}>{data.CategoryName}</div>
           )
         })
         : <div>couldn't load data</div>
