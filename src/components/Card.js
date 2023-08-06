@@ -10,14 +10,14 @@ function Card() {
         >
           
           <img 
-          style={{height:"21vh",objectFit :"cover"}}
+          style={{height:"19.5vh",objectFit :"cover"}}
           src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
           className="card-img-top cardimgdev"  alt="Card image cap" />
           <div className="card-body">
             <h5 className="card-title">Card title</h5>
             <p className="card-text">some text to be written here.</p>
             <div className="">
-              <select className="m-2  rounded bg-warning">
+              <select className="m-2 rounded bg-warning">
                 {Array.from(Array(6), (e, i) => {
                   return (
                     <option key={i + 1} value={i + 1}>
