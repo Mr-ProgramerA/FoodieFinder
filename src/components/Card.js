@@ -1,8 +1,8 @@
 import React from "react";
 
 function Card(props) {
-
-  let options = props.options
+  let options = props.options;
+  let priceOptions = Object.keys(options);
 
   return (
     <>
@@ -45,7 +45,7 @@ function Card(props) {
       <div className="card mx-auto" style={{ width: "18rem" }}>
         <img
           style={{ height: "12em", objectFit: "cover" }}
-          src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          src={props.imgSrc}
           className="card-img-top"
           alt="..."
         />
@@ -62,9 +62,12 @@ function Card(props) {
             })}
           </select>
           <select className="rounded bg-warning ms-3 ">
-            <option value="full">Full</option>
-            <option value="half">Half</option>
+            {priceOptions.map((data) => {
+              return <option key={data} value={data}> {data} </option>
+              
+            })}
           </select>
+          <div className="m-1 fs-5 ms-2">Price:</div>
         </div>
       </div>
 
