@@ -47,8 +47,16 @@ function Home() {
                     .filter((item) => item.CategoryName == data.CategoryName)
                     .map((filterItems) => {
                       return (
-                        <div key={filterItems._id} className="col-12 col-md-6 col-lg-4">
-                          <Card />
+                        <div
+                          key={filterItems._id}
+                          className="col-12 col-md-6 col-lg-4 mb-4"
+                        >
+                          <Card
+                            foodName={filterItems.name}
+                            options={filterItems.options[0]}
+                            imgSrc={filterItems.img}
+                            desc = {filterItems.description}
+                          />
                         </div>
                       );
                     })

@@ -1,9 +1,12 @@
 import React from "react";
 
-function Card() {
+function Card(props) {
+
+  let options = props.options
+
   return (
     <>
-      <div className="">
+      {/* <div className="">
         <div
           className="card m-3"
           style={{ width: "18rem", maxHeight: "41vh" }}
@@ -37,11 +40,35 @@ function Card() {
           </div>
           
         </div>
+      </div> */}
+
+      <div className="card mx-auto" style={{ width: "18rem" }}>
+        <img
+          style={{ height: "12em", objectFit: "cover" }}
+          src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          className="card-img-top"
+          alt="..."
+        />
+        <div className="card-body">
+          <h5 className="card-title"> {props.foodName} </h5>
+          <p className="card-text fs-6"> {props.desc} </p>
+          <select className="rounded bg-warning ms-2 ">
+            {Array.from(Array(6), (e, i) => {
+              return (
+                <option key={i + 1} value={i + 1}>
+                  {i + 1}
+                </option>
+              );
+            })}
+          </select>
+          <select className="rounded bg-warning ms-3 ">
+            <option value="full">Full</option>
+            <option value="half">Half</option>
+          </select>
+        </div>
       </div>
 
-
-
-{/* <div className="card" style={{width: "18rem"}}>
+      {/* <div className="card" style={{width: "18rem"}}>
   <img src="..." className="card-img-top" alt="..."/>
   <div className="card-body">
     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
