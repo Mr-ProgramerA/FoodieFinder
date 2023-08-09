@@ -75,8 +75,10 @@ body{
   padding: 1.6%;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
   .border-style{
     max-height: fit-content;
+    width: 95%;
+    padding: 3%;
   }
 }
