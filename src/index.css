@@ -82,3 +82,18 @@ body{
     padding: 3%;
   }
 }
+
+.LoginSignUpBtn{
+  /* border-radius: 11px; */
+  background-color: rgb(218, 25, 150);
+  border: 1px rgb(222, 29, 129);
+  padding: auto 13px;
+}
+
+.LoginSignUpBtn:hover{
+  background-color: seagreen;
+}
+
+.LoginSignUpBtn:active{
+  background-color: blueviolet;
+}
