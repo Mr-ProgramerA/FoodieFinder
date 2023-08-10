@@ -47,23 +47,6 @@ body{
 
 }
 
-/* ===== just for setup ======= */
-.cardimgdev{
-  /* height: 21vh;
-  width: auto;
-  object-fit : fill;
-  object-position: center; */
-}
-.cardmaindev{
-  /* border: 1px solid red; */
-  /* margin: 7px 1px; */
-  /* height: fit-content; */
-  /* z-index: 100; */
-}
-*{
-  /* border: 2px dashed green !important; */
-}
-
 .border-style{
   border-style: groove;
   border-width: 2%;
