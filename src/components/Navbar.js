@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function componentNavbar() {
+function ComponentNavbar() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    navigate("/login");
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-warning">
@@ -60,7 +66,19 @@ function componentNavbar() {
                   SignUp
                 </Link>
               </div>
-            ) : ( "" )}
+            ) : (
+              <div>
+                <div className="btn btn-danger text-white mx-1 LoginSignUpBtn">
+                  My Cart
+                </div>
+                <div
+                  className="btn btn-danger text-white mx-1 LoginSignUpBtn"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>
@@ -68,4 +86,4 @@ function componentNavbar() {
   );
 }
 
-export default componentNavbar;
+export default ComponentNavbar;

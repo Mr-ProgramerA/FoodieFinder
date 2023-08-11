@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Signup() {
   const [credentials, setCredentials] = useState({
@@ -10,6 +10,7 @@ function Signup() {
     geolocation: "",
   });
 
+  const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response =await fetch("http://localhost:5000/api/createuser", {
@@ -36,7 +37,8 @@ function Signup() {
         email: "",
         password: "",
         geolocation: "",
-      })  
+      }) 
+      navigate("/login") 
     }
   };
 
