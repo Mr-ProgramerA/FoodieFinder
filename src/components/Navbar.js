@@ -54,13 +54,13 @@ function ComponentNavbar() {
             {!localStorage.getItem("authToken") ? (
               <div className="d-flex">
                 <Link
-                  className=" btn btn-danger text-white mx-1 LoginSignUpBtn"
+                  className=" btn btn-primary text-white mx-1 LoginSignUpBtn"
                   to="/login"
                 >
                   Login
                 </Link>
                 <Link
-                  className=" btn btn-danger text-white mx-1 LoginSignUpBtn"
+                  className=" btn btn-primary text-white mx-1 LoginSignUpBtn"
                   to="/createuser"
                 >
                   SignUp
@@ -68,7 +68,7 @@ function ComponentNavbar() {
               </div>
             ) : (
               <div>
-                <div className="btn btn-danger text-white mx-1 LoginSignUpBtn">
+                <div className="btn btn-success text-white mx-1 LoginSignUpBtn">
                   My Cart
                 </div>
                 <div

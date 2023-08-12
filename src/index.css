@@ -74,9 +74,9 @@ body{
 }
 
 .LoginSignUpBtn:hover{
-  background-color: seagreen;
+  background-color: rgb(62, 143, 231);
 }
 
 .LoginSignUpBtn:active{
-  background-color: blueviolet;
+  background-color: black;
 }
