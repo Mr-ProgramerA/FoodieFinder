@@ -54,7 +54,7 @@ function ComponentNavbar() {
             {!localStorage.getItem("authToken") ? (
               <div className="d-flex">
                 <Link
-                  className=" btn btn-primary text-white mx-1 LoginSignUpBtn"
+                  className=" btn btn-success text-white mx-1 LoginSignUpBtn"
                   to="/login"
                 >
                   Login

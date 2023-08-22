@@ -145,11 +145,11 @@ function Home() {
                           key={filterItems._id}
                           className="col-12 col-md-6 col-lg-4 mb-4"
                         >
-                          <Card
-                            foodName={filterItems.name}
+                          <Card foodItems = {filterItems}
+                            // foodName={filterItems.name}
+                            // desc={filterItems.description}
+                            // imgSrc={filterItems.img}
                             options={filterItems.options[0]}
-                            imgSrc={filterItems.img}
-                            desc={filterItems.description}
                           />
                         </div>
                       );

@@ -1,26 +1,52 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatchCart, useCart } from "./ContextReduser";
 
 function Card(props) {
   let options = props.options;
   let priceOptions = Object.keys(options);
 
-  const handleAddToCart = () => {
-    
-  }
+  const dispatch = useDispatchCart();
+  const data = useCart()
+  const priceRef = useRef();
+
+  const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("");
+
+  const handleAddToCart = async () => {
+    await dispatch({
+      type: "ADD",
+      id: props.foodItems._id,
+      name: props.foodItems.name,
+      img:props.foodItems.img,
+      price: finalPrice,
+      qty: qty,
+      size: size,
+    });
+  };
+
+  useEffect(() => {
+    setSize(priceRef.current.value)
+  }, [])
+
+  
+
+let finalPrice = qty * parseInt(options[size])
 
   return (
     <>
       <div className="card mx-auto" style={{ width: "18rem" }}>
         <img
           style={{ height: "12em", objectFit: "cover" }}
-          src={props.imgSrc}
+          src={props.foodItems.img}
           className="card-img-top"
           alt="..."
         />
         <div className="card-body">
-          <h5 className="card-title"> {props.foodName} </h5>
-          <p className="card-text fs-6"> {props.desc} </p>
-          <select className="rounded bg-warning ms-2 ">
+          <h5 className="card-title"> {props.foodItems.name} </h5>
+          <p className="card-text fs-6"> {props.foodItems.desc} </p>
+          <select className="rounded bg-warning ms-2"
+          onChange={(e)=>setQty(e.target.value)}
+          >
             {Array.from(Array(6), (e, i) => {
               return (
                 <option key={i + 1} value={i + 1}>
@@ -29,7 +55,10 @@ function Card(props) {
               );
             })}
           </select>
-          <select className="rounded bg-warning ms-3 ">
+          <select className="rounded bg-warning ms-3" 
+          ref={priceRef}
+          onChange={(e)=>setSize(e.target.value)}
+          >
             {priceOptions.map((data) => {
               return (
                 <option key={data} value={data}>
@@ -38,7 +67,9 @@ function Card(props) {
               );
             })}
           </select>
-          <div className="m-1 fs-5 ms-2">Price:</div>
+          <div className="m-1 fs-5 ms-2">
+            ₹{finalPrice}/-
+          </div>
 
           <hr />
           <button
