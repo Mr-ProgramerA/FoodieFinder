@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Badge } from "react-bootstrap";
 
 function ComponentNavbar() {
   const navigate = useNavigate();
@@ -70,6 +71,11 @@ function ComponentNavbar() {
               <div>
                 <div className="btn btn-success text-white mx-1 LoginSignUpBtn">
                   My Cart
+                  <Badge
+                  style={{borderRadius: "40px"}}
+                  className="bg-dark ms-2">
+                    12
+                  </Badge>
                 </div>
                 <div
                   className="btn btn-danger text-white mx-1 LoginSignUpBtn"
