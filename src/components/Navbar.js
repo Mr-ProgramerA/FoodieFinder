@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Badge } from "react-bootstrap";
@@ -90,16 +89,15 @@ function ComponentNavbar() {
                   </Badge>
                 </div>
 
-                  {cartView ? (
-                    <Modal
-                      onClose={() => {
-                        setCartView(false);                        
-                      }}
-                    >
-                      {" "}
-                      <Cart />{" "}
-                    </Modal>
-                  ) : null}
+                {cartView ? (
+                  <Modal
+                    onClose={() => {
+                      setCartView(false);
+                    }}
+                  >
+                    <Cart />
+                  </Modal>
+                ) : null}
                 <div
                   className="btn btn-danger text-white mx-1 login-sign-up-btn"
                   onClick={handleLogout}
