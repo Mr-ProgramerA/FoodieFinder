@@ -1,7 +1,13 @@
+
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Badge } from "react-bootstrap";
+import Modal from "../Modal";
+import Cart from "../screens/Cart";
 
 function ComponentNavbar() {
+  const [cartView, setCartView] = useState(false);
+
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("authToken");
@@ -49,19 +55,21 @@ function ComponentNavbar() {
                     My Orders
                   </Link>
                 </li>
-              ) : ( "" )}
+              ) : (
+                ""
+              )}
             </ul>
 
             {!localStorage.getItem("authToken") ? (
               <div className="d-flex">
                 <Link
-                  className=" btn btn-success text-white mx-1 LoginSignUpBtn"
+                  className=" btn btn-success text-white mx-1 login-sign-up-btn"
                   to="/login"
                 >
                   Login
                 </Link>
                 <Link
-                  className=" btn btn-primary text-white mx-1 LoginSignUpBtn"
+                  className=" btn btn-primary text-white mx-1 login-sign-up-btn"
                   to="/createuser"
                 >
                   SignUp
@@ -69,16 +77,31 @@ function ComponentNavbar() {
               </div>
             ) : (
               <div>
-                <div className="btn btn-success text-white mx-1 LoginSignUpBtn">
+                <div
+                  className="btn btn-success text-white mx-1 login-sign-up-btn"
+                  onClick={() => setCartView(true)}
+                >
                   My Cart
                   <Badge
-                  style={{borderRadius: "40px"}}
-                  className="bg-dark ms-2">
+                    style={{ borderRadius: "40px" }}
+                    className="bg-dark ms-2"
+                  >
                     12
                   </Badge>
                 </div>
+
+                  {cartView ? (
+                    <Modal
+                      onClose={() => {
+                        setCartView(false);                        
+                      }}
+                    >
+                      {" "}
+                      <Cart />{" "}
+                    </Modal>
+                  ) : null}
                 <div
-                  className="btn btn-danger text-white mx-1 LoginSignUpBtn"
+                  className="btn btn-danger text-white mx-1 login-sign-up-btn"
                   onClick={handleLogout}
                 >
                   Logout

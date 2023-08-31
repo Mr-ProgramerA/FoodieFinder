@@ -15,13 +15,60 @@ function Cart() {
   }
 
   const totalPrice = data.reduce((total, food) => total + food.price, 0);
-  return(
+  return (
     <>
-    <div>
-        
-    </div>
+      <div
+           className="container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md">
+        <table className="table table-hover "
+        style={{backgroundColor:"rgb(255, 255, 144)"}}
+        >
+          <thead className="fs-4">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col"> Option</th>
+              <th scope="col">Amount</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody className="table-group-divider">
+            {data.map((food, index) => {
+              return (
+                <tr>
+                  <th scope="row">{index + 1}</th>
+                  <td>{food.name}</td>
+                  <td>{food.qty}</td>
+                  <td>{food.size}</td>
+                  <td>{food.price}</td>
+                  <td>
+                    <button type="button" className="btn p-0">
+                      <img
+                        src={trash}
+                        alt="delete"
+                        className="sec"
+                        onClick={() =>
+                          dispatch({ type: "REMOVE", index: index })
+                        }
+                      />
+                    </button>
+                  </td>
+                </tr>
+              );
+              // console.log(food.name, index);
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
-  )
+    // data.map((food=>{
+    //   return(
+    //     <div>
+    //       <img src={trash} alt="" srcset="" />
+    //     </div>
+    //   )
+    // }))
+  );
 }
 
 // ============ testing logic --> putting order summary just above the footer ================ //

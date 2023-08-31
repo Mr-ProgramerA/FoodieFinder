@@ -66,17 +66,17 @@ body{
   }
 }
 
-.LoginSignUpBtn{
+.login-sign-up-btn{
   /* border-radius: 11px; */
   background-color: rgb(218, 25, 150);
   border: 1px rgb(222, 29, 129);
   padding: auto 13px;
 }
 
-.LoginSignUpBtn:hover{
+.login-sign-up-btn:hover{
   background-color: rgb(62, 143, 231);
 }
 
-.LoginSignUpBtn:active{
+.login-sign-up-btn:active{
   background-color: black;
 }
