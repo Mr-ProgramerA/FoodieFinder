@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { Badge } from "react-bootstrap";
 import Modal from "../Modal";
 import Cart from "../screens/Cart";
+import { useCart } from "./ContextReduser";
 
 function ComponentNavbar() {
   const [cartView, setCartView] = useState(false);
+  const data = useCart();
 
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -85,7 +87,7 @@ function ComponentNavbar() {
                     style={{ borderRadius: "40px" }}
                     className="bg-dark ms-2"
                   >
-                    12
+                    {data.length !== 0 ? data.length : null}
                   </Badge>
                 </div>
 

@@ -17,6 +17,10 @@ const reduser = (state, action) => {
           img: action.img,
         },
       ];
+      case "REMOVE":
+        const newArr = [...state]
+      newArr.splice(action.index,1)
+      return newArr
     default:
       console.log("error in reduser");
       break;

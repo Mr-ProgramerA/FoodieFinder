@@ -18,7 +18,11 @@ function Cart() {
   return (
     <>
       <div
-           className="container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md">
+           className="container m-auto mt-2 table-responsive table-responsive-sm table-responsive-md">
+      <div className="d-flex m-1 mt-2">
+        <h4 className="fw-bold flex-grow-1">Total Price: {totalPrice}</h4>
+      <button className="btn btn-sm btn-success m-1">Check Out</button>
+      </div>  
         <table className="table table-hover "
         style={{backgroundColor:"rgb(255, 255, 144)"}}
         >
