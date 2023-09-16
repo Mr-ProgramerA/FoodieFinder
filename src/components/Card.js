@@ -15,12 +15,12 @@ function Card(props) {
   const handleAddToCart = async () => {
     let food = [];
     for (const item of data) {
-      if (item.id === props.foodItems._id && item.size === props.foodItems.size) {
+      if (item.id == props.foodItems._id && size == item.size) {
         food = item;
         break;
       }
     }
-    if (food !== []) {
+    if (food != []) {
       if (food.size === size) {
         await dispatch({
           type: "UPDATE",

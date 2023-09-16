@@ -124,7 +124,7 @@ function Home() {
         </div>
       </div>
       <div className="container">
-        {foodCat !== [] ? (
+        {foodCat != [] ? (
           foodCat.map((data) => {
             return (
               <div className="row mb-3">
@@ -132,7 +132,7 @@ function Home() {
                   {data.CategoryName}
                 </div>
                 <hr />
-                {foodItem !== [] ? (
+                {foodItem != [] ? (
                   foodItem
                     .filter(
                       (item) =>

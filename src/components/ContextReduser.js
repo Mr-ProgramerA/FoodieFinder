@@ -33,7 +33,7 @@ const reduser = (state, action) => {
           console.log("\n\n=============", arr,"\n============");
 
           updatedArr[index] = {...food,
-            qty:parseInt(action.qty) + food.qty,
+            qty:parseInt(action.qty) + parseInt(food.qty),
             price: action.price+ food.price
           }
            console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",updatedArr); 
