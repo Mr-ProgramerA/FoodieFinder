@@ -6,18 +6,48 @@ function Card(props) {
   let priceOptions = Object.keys(options);
 
   const dispatch = useDispatchCart();
-  const data = useCart()
+  const data = useCart();
   const priceRef = useRef();
 
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("");
 
   const handleAddToCart = async () => {
+    let food = [];
+    for (const item of data) {
+      if (item.id === props.foodItems._id && item.size === props.foodItems.size) {
+        food = item;
+        break;
+      }
+    }
+    if (food !== []) {
+      if (food.size === size) {
+        await dispatch({
+          type: "UPDATE",
+          id: props.foodItems._id,
+          price: finalPrice,
+          qty: qty,
+        });
+        return;
+      } else if (food.size !== size) {
+        await dispatch({
+          type: "ADD",
+          id: props.foodItems._id,
+          name: props.foodItems.name,
+          price: finalPrice,
+          qty: qty,
+          size: size,
+        });
+        return;
+      }
+      return;
+    }
+
     await dispatch({
       type: "ADD",
       id: props.foodItems._id,
       name: props.foodItems.name,
-      img:props.foodItems.img,
+      img: props.foodItems.img,
       price: finalPrice,
       qty: qty,
       size: size,
@@ -25,12 +55,10 @@ function Card(props) {
   };
 
   useEffect(() => {
-    setSize(priceRef.current.value)
-  }, [])
+    setSize(priceRef.current.value);
+  }, []);
 
-  
-
-let finalPrice = qty * parseInt(options[size])
+  let finalPrice = qty * parseInt(options[size]);
 
   return (
     <>
@@ -44,8 +72,9 @@ let finalPrice = qty * parseInt(options[size])
         <div className="card-body">
           <h5 className="card-title"> {props.foodItems.name} </h5>
           <p className="card-text fs-6"> {props.foodItems.desc} </p>
-          <select className="rounded bg-warning ms-2"
-          onChange={(e)=>setQty(e.target.value)}
+          <select
+            className="rounded bg-warning ms-2"
+            onChange={(e) => setQty(e.target.value)}
           >
             {Array.from(Array(6), (e, i) => {
               return (
@@ -55,9 +84,10 @@ let finalPrice = qty * parseInt(options[size])
               );
             })}
           </select>
-          <select className="rounded bg-warning ms-3" 
-          ref={priceRef}
-          onChange={(e)=>setSize(e.target.value)}
+          <select
+            className="rounded bg-warning ms-3"
+            ref={priceRef}
+            onChange={(e) => setSize(e.target.value)}
           >
             {priceOptions.map((data) => {
               return (
@@ -67,9 +97,7 @@ let finalPrice = qty * parseInt(options[size])
               );
             })}
           </select>
-          <div className="m-1 fs-5 ms-2">
-            ₹{finalPrice}/-
-          </div>
+          <div className="m-1 fs-5 ms-2">₹{finalPrice}/-</div>
 
           <hr />
           <button
