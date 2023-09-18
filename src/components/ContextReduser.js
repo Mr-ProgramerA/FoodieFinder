@@ -36,6 +36,11 @@ const reduser = (state, action) => {
       const newArr = [...state];
       newArr.splice(action.index, 1);
       return newArr;
+
+    case "DROP":
+      const emptyArray = [];
+      return emptyArray;
+      
     default:
       console.log("error in reduser");
       break;

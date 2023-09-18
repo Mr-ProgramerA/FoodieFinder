@@ -14,17 +14,36 @@ function Cart() {
     );
   }
 
+  const handleCheckOut = async () => {
+    const userEmail = localStorage.getItem("userEmail");
+    let response = await fetch("http://localhost:5000/api/orderData", {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        order_data: data,
+        email: userEmail,
+        order_date: new Date().toDateString(),
+      }),
+    });
+    console.log("Order Response------>",response);
+    if (response.status === 200) {
+      dispatch({ type: "DROP" });
+    }
+  };
+
   const totalPrice = data.reduce((total, food) => total + food.price, 0);
   return (
     <>
-      <div
-           className="container m-auto mt-2 table-responsive table-responsive-sm table-responsive-md">
-      <div className="d-flex m-1 mt-2">
-        <h4 className="fw-bold flex-grow-1">Total Price: {totalPrice}</h4>
-      <button className="btn btn-sm btn-success m-1">Check Out</button>
-      </div>  
-        <table className="table table-hover "
-        style={{backgroundColor:"rgb(255, 255, 144)"}}
+      <div className="container m-auto mt-2 table-responsive table-responsive-sm table-responsive-md">
+        <div className="d-flex m-1 mt-2">
+          <h4 className="fw-bold flex-grow-1">Total Price: {totalPrice}</h4>
+          <button className="btn btn-sm btn-success m-1">Check Out</button>
+        </div>
+        <table
+          className="table table-hover "
+          style={{ backgroundColor: "rgb(255, 255, 144)" }}
         >
           <thead className="fs-4">
             <tr>
@@ -65,43 +84,7 @@ function Cart() {
         </table>
       </div>
     </>
-    // data.map((food=>{
-    //   return(
-    //     <div>
-    //       <img src={trash} alt="" srcset="" />
-    //     </div>
-    //   )
-    // }))
   );
 }
-
-// ============ testing logic --> putting order summary just above the footer ================ //
-//   let priceholder = 0
-//   return data.length === 0 ? (
-//     <div> no data</div>
-//   ) : (
-//     <div className="p-4">
-//       <h3>order summary:</h3>
-//       <hr />
-//       {
-//        data.map((item) => {
-//         priceholder+=item.price
-//         return (
-//           <div>
-//             <span>{item.name}</span>
-//             {":  size: "}
-//             <span>{item.size}</span>
-//             {":  quantity: "}
-//             <span>{item.qty}</span>
-//             {":  price: "}
-//             <span>{item.price}</span>
-//           </div>
-//         );
-//       })}
-//       <hr />
-//       <h4>final price:- {priceholder}</h4>
-//     </div>
-//   );
-// }
 
 export default Cart;
