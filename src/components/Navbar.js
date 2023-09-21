@@ -50,7 +50,7 @@ function ComponentNavbar() {
                   <Link
                     className="nav-link nav_tabs fs-5 text-dark"
                     aria-current="page"
-                    to="/"
+                    to="/myOrder"
                     style={{ width: "max-content" }}
                   >
                     My Orders

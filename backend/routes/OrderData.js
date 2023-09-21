@@ -31,14 +31,19 @@ router.post("/orderData", async (req, res) => {
         res.json({ success: true });
       });
     } catch (error) {
-      console.log(
-        "-------------------------\n",
-        error,
-        "\n==========================\n",
-        error.stack
-      );
+      console.log("ERROR in updation of order data:\n", error);
       res.status(500).send("Server Error", error.message);
     }
+  }
+});
+
+router.post("/myorderData", async (req, res) => {
+  try {
+    const myData = await Order.findOne({ email: req.body.email });
+    res.json({ orderData: myData });
+  } catch (error) {
+    console.log("ERROR in fetching order data:\n", error);
+    res.status(500).send("Server Error", error.message);
   }
 });
 

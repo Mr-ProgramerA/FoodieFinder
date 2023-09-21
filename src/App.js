@@ -1,11 +1,12 @@
 import "./App.css";
-import Home from "./screens/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./screens/Login";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import Signup from "./screens/Signup";
 import {CartProvider} from "./components/ContextReduser";
+import Home from "./screens/Home";
+import Login from "./screens/Login";
+import Signup from "./screens/Signup";
+import MyOrder from "./screens/MyOrder";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/createuser" element={<Signup />}></Route>
+            <Route exact path="/myOrder" element={<MyOrder />}></Route>
           </Routes>
         </div>
       </Router>
