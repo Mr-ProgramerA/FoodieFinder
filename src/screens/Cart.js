@@ -39,7 +39,9 @@ function Cart() {
       <div className="container m-auto mt-2 table-responsive table-responsive-sm table-responsive-md">
         <div className="d-flex m-1 mt-2">
           <h4 className="fw-bold flex-grow-1">Total Price: {totalPrice}</h4>
-          <button className="btn btn-sm btn-success m-1">Check Out</button>
+          <button className="btn btn-sm btn-success m-1"
+          onClick={handleCheckOut}
+          >Check Out</button>
         </div>
         <table
           className="table table-hover "
