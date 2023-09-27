@@ -4,7 +4,7 @@ const Order = require("../models/Orders");
 
 router.post("/orderData", async (req, res) => {
   let data = req.body.order_data;
-  await data.splice(0, 0, { Order_data: req.body.order_date });
+  await data.splice(0, 0, { Order_date: req.body.order_date });
 
   // if email not existing in db then create; else : InsertMany()
   const eId = await Order.findOne({ email: req.body.email });
@@ -37,7 +37,7 @@ router.post("/orderData", async (req, res) => {
   }
 });
 
-router.post("/myorderData", async (req, res) => {
+router.post("/myOrderData", async (req, res) => {
   try {
     const myData = await Order.findOne({ email: req.body.email });
     res.json({ orderData: myData });
