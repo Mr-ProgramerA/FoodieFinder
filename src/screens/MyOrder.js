@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 export default function MyOrder() {
-  const [orderData, setorderData] = useState({});
+  const [OrderData, setorderData] = useState({});
 
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
@@ -35,8 +35,8 @@ export default function MyOrder() {
 
       <div className="container">
         <div className="row">
-          {orderData != {}
-            ? Array(orderData).map((data) => {
+          {OrderData != {}
+            ? Array(OrderData).map((data) => {
                 return data.orderData
                   ? data.orderData.order_data
                       .slice(0)
