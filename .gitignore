@@ -2,6 +2,7 @@
 
 # files
 *.txt
+README.md
 
 # dependencies
 node_modules
