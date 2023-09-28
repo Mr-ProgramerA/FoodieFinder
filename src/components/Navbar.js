@@ -20,7 +20,7 @@ function ComponentNavbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-warning">
         <div className="container-fluid">
           <Link className="navbar-brand fs-1 heading fst-italic" to="/">
-            GoFood
+          FoodieFinder
           </Link>
           <button
             className="navbar-toggler"
